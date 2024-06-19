@@ -1,7 +1,7 @@
 "use server";
 
 import { connectToDatabase } from "../mongoose";
-import User, { UserDocument } from "@/database/user.model";
+import User from "@/database/user.model";
 import {
   CreateUserParams,
   DeleteUserParams,
