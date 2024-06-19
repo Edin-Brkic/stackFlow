@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface TagProps {
   tag: string;
-  num: number; // Num treba da bude tipa number, ne string
+  num?: number; // Num treba da bude tipa number, ne string
 }
 
 const Tag: React.FC<TagProps> = ({ tag, num }) => {

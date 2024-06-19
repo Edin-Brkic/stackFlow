@@ -7,6 +7,11 @@ import { usePathname } from "next/navigation";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
+
+interface TagProps {
+  tag: string;
+  num?: number; // Postavljanje num kao opcioni atribut
+}
 export default function LeftSidebar() {
   const pathname = usePathname();
   return (
