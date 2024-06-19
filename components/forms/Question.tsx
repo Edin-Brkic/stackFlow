@@ -28,6 +28,13 @@ interface Props {
   mongoUserId: string;
 }
 
+interface FormValues {
+  title: string;
+  tags: string[];
+  explanation: string;
+  author: string;
+}
+
 export default function Question({ mongoUserId }: Props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const editorRef = useRef(null);
