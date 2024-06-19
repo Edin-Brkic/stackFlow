@@ -203,3 +203,6 @@
     );
   }
 }
+.fill {
+  @apply fill-black dark:fill-white !important;
+}
