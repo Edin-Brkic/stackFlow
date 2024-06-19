@@ -25,6 +25,19 @@
       "rules": {
         "tailwindcss/no-custom-classname": "off"
       }
+    },
+    {
+      "files": ["./components/ui/sheet.tsx"],
+      "rules": {
+        "tailwindcss/classnames-order": "off",
+        "tailwindcss/no-custom-classname": "off"
+      }
+    },
+    {
+      "files": ["./components/forms/Question.tsx"],
+      "rules": {
+        "tailwindcss/enforces-shorthand": "off"
+      }
     }
   ]
 }
