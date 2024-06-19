@@ -80,8 +80,8 @@ export async function POST(req: Request) {
       updateData: {
         name = `${first_name}${last_name ? ` ${last_name}` : ""}`,
         username: username!,
-        email: email_addresses[0].email_address,
         picture: image_url,
+        email: email_addresses[0].email_address,
       },
       path: `/profile/${id}`,
     });
