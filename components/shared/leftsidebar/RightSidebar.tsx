@@ -14,7 +14,7 @@ export default function RightSidebar() {
       </section>
       <section className=" mt-7 flex flex-col gap-4 px-6">
         <p className="h3-bold text-dark200_light900">Popular Tags</p>
-        <Tag tag="nextjs" num="32" />
+        <Tag tag="nextjs" num={32} />
       </section>
     </section>
   );
