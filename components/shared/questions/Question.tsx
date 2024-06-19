@@ -1,5 +1,5 @@
 import React from "react";
-import Tag from "../leftsidebar/Tag";
+import LeftSidebarTag from "../leftsidebar/Tag"; // Rename the imported Tag component
 import Image from "next/image";
 import moment from "moment";
 
@@ -9,7 +9,8 @@ function mom(date: string) {
   return currentDate.diff(dateToCompare, "days");
 }
 
-interface Tag {
+// Rename the interface to avoid conflict with imported Tag
+interface TagData {
   _id: number;
   name: string;
 }
@@ -25,7 +26,7 @@ interface Author {
 interface Question {
   _id: number;
   title: string;
-  tags: Tag[];
+  tags: TagData[]; // Use renamed TagData interface here
   author: Author; // Make author mandatory
   votes: number;
   answers: number;
@@ -48,7 +49,7 @@ const QuestionCard: React.FC<QuestionProps> = ({ question }) => {
       <div className="mb-6 mt-[14px] flex flex-wrap items-start gap-2">
         {tags.map((tag) => (
           <div key={tag._id}>
-            <Tag tag={tag.name} />
+            <LeftSidebarTag tag={tag.name} /> {/* Use renamed component here */}
           </div>
         ))}
       </div>
