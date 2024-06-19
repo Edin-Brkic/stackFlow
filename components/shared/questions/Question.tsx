@@ -9,7 +9,7 @@ function mom(date: string) {
   return currentDate.diff(dateToCompare, "days");
 }
 
-interface Tag {
+interface Tage {
   _id: number;
   name: string;
 }
@@ -25,7 +25,7 @@ interface Author {
 interface Question {
   _id: number;
   title: string;
-  tags: Tag[];
+  tags: Tage[];
   author: Author;
   votes: number;
   answers: number;
