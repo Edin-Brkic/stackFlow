@@ -33,11 +33,7 @@ export default function Question({ mongoUserId }: Props) {
   const editorRef = useRef(null);
   const router = useRouter();
   const pathname = usePathname();
-  const log = () => {
-    if (editorRef.current) {
-      console.log(editorRef.current.getContent());
-    }
-  };
+
   const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
     defaultValues: {
