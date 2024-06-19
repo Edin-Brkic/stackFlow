@@ -6,41 +6,17 @@
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
-  "rules": {
-    "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off"
-  },
   "overrides": [
     {
-      "files": ["./app/api/webhook/route.ts"],
+      "files": ["**/*.ts", "**/*.tsx"],
       "rules": {
         "no-unused-vars": "off"
       }
     },
     {
-      "files": ["./app/layout.tsx"],
+      "files": ["**/*.tsx"],
       "rules": {
-        "no-unused-vars": "off",
         "camelcase": "off"
-      }
-    },
-    {
-      "files": ["./app/(root)/layout.tsx"],
-      "rules": {
-        "tailwindcss/no-custom-classname": "off"
-      }
-    },
-    {
-      "files": ["./components/ui/sheet.tsx"],
-      "rules": {
-        "tailwindcss/classnames-order": "off",
-        "tailwindcss/no-custom-classname": "off"
-      }
-    },
-    {
-      "files": ["./components/forms/Question.tsx"],
-      "rules": {
-        "tailwindcss/enforces-shorthand": "off"
       }
     }
   ]
