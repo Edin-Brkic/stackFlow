@@ -6,12 +6,25 @@
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
-  "rules": {
-    "react/react-in-jsx-scope": "off"
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
+  "overrides": [
+    {
+      "files": ["./app/api/webhook/route.ts"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["./app/layout.tsx"],
+      "rules": {
+        "no-unused-vars": "off",
+        "camelcase": "off"
+      }
+    },
+    {
+      "files": ["./app/(root)/layout.tsx"],
+      "rules": {
+        "tailwindcss/no-custom-classname": "off"
+      }
     }
-  }
+  ]
 }
