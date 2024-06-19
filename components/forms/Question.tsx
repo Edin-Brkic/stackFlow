@@ -41,14 +41,15 @@ export default function Question({ mongoUserId }: Props) {
   const router = useRouter();
   const pathname = usePathname();
 
+  const defaultValues: FormValues = {
+    title: "",
+    explanation: "",
+    tags: [],
+    author: mongoUserId,
+  };
   const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
-    defaultValues: {
-      title: "",
-      explanation: "",
-      tags: [],
-      author: mongoUserId,
-    },
+    defaultValues,
   });
 
   // 2. Define a submit handler.
