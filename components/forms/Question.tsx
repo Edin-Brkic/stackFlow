@@ -47,7 +47,7 @@ export default function Question({ mongoUserId }: Props) {
       title: "",
       explanation: "",
       tags: [],
-      author: JSON.parse(mongoUserId),
+      author: mongoUserId,
     },
   });
 
