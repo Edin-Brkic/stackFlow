@@ -40,36 +40,39 @@ export default function Question({ mongoUserId }: Props) {
   const editorRef = useRef(null);
   const router = useRouter();
   const pathname = usePathname();
+  console.log("evo ga", mongoUserId);
 
   const defaultValues: FormValues = {
     title: "",
     explanation: "",
     tags: [],
-    author: mongoUserId,
+    author: mongoUserId, // Osiguranje da je mongoUserId string
   };
+
   const form = useForm<z.infer<typeof QuestionsSchema>>({
     resolver: zodResolver(QuestionsSchema),
     defaultValues,
   });
 
-  // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof QuestionsSchema>) {
     setIsSubmitting(true);
     try {
-      //  make async call to api to create question with all data and navigate to home
+      // API poziv za kreiranje pitanja
       await createQuestion({
         title: values.title,
         content: values.explanation,
         tags: values.tags,
-        author: JSON.parse(mongoUserId),
+        author: mongoUserId, // Prosleđivanje mongoUserId kao string
         path: pathname,
       });
       router.push("/");
     } catch (error) {
+      console.error("Error creating question:", error);
     } finally {
       setIsSubmitting(false);
     }
   }
+
   const handleInputKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
     field: any
@@ -96,10 +99,12 @@ export default function Question({ mongoUserId }: Props) {
       }
     }
   };
+
   const handleTagRemove = (tag: string, field: any) => {
     const newTags = field.value.filter((t: string) => t !== tag);
     form.setValue("tags", newTags);
   };
+
   return (
     <Form {...form}>
       <form
@@ -121,7 +126,7 @@ export default function Question({ mongoUserId }: Props) {
                 />
               </FormControl>
               <FormDescription className="body-regular mt-2.5 text-light-500">
-                Be specific and imagine you are asking a question to antoher
+                Be specific and imagine you are asking a question to another
                 person.
               </FormDescription>
               <FormMessage className="text-red-500" />
