@@ -5,11 +5,8 @@ import { redirect } from "next/navigation";
 import { getUserById } from "@/lib/actions/user.action";
 
 export default async function AskQuestion() {
-  /*
   const { userId } = auth();
-   */
 
-  const userId = "clerk123";
   if (!userId) redirect("/sign-in");
   const mongoUser = await getUserById({ userId });
 
